@@ -96,6 +96,7 @@ class FirstFragment : Fragment() {
     ): View? {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        permissionHandler()
         return binding.root
 
     }
@@ -111,7 +112,7 @@ class FirstFragment : Fragment() {
             insertProductToDB()
         }
 
-        binding.imageView.setOnClickListener {
+        binding.buttonImg.setOnClickListener {
             checkAndRequestPermission()
         }
 
