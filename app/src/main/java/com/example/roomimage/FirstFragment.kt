@@ -114,6 +114,9 @@ class FirstFragment : Fragment() {
         binding.imageView.setOnClickListener {
             checkAndRequestPermission()
         }
+
+        // img default
+        binding.imageView.load("https://ih1.redbubble.net/image.1911138500.5263/flat,750x,075,f-pad,750x1000,f8f8f8.jpg")
     }
 
     override fun onDestroyView() {
@@ -129,8 +132,7 @@ class FirstFragment : Fragment() {
         val url: String = "https://ih1.redbubble.net/image.1911138500.5263/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
 
         if (inputValidation(name, desc, price, url)) {
-            val priceFloat = price.toFloat()
-            val product: Product = Product(0, name, desc, url, 1.1F)
+            val product: Product = Product(0, name, desc, url, price)
             viewModel.insert(product)
             Snackbar.make(binding.root, "Product added", Snackbar.LENGTH_LONG).show()
         } else {
