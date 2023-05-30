@@ -10,5 +10,5 @@ data class Product(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "url_image") val urlImage: String,
-    @ColumnInfo(name = "price") val price: Float
+    @ColumnInfo(name = "price") val price: Float = 0F
 )

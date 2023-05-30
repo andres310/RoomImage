@@ -4,7 +4,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import coil.load
 import com.example.db.model.entity.Product
 import com.example.roomimage.R
 import com.example.roomimage.databinding.FragmentItemBinding
@@ -35,6 +37,7 @@ class MyItemRecyclerViewAdapter(
         val item = values[position]
         holder.idView.text = item.id.toString()
         holder.contentView.text = item.name
+        holder.imgView.load(item.urlImage)
     }
 
     override fun getItemCount(): Int = values.size
@@ -42,6 +45,7 @@ class MyItemRecyclerViewAdapter(
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val idView: TextView = binding.itemNumber
         val contentView: TextView = binding.content
+        val imgView: ImageView = binding.imageViewItem
 
         override fun toString(): String {
             return super.toString() + " '" + contentView.text + "'"
