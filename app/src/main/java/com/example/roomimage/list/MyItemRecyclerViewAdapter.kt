@@ -37,6 +37,8 @@ class MyItemRecyclerViewAdapter(
         val item = values[position]
         holder.idView.text = item.id.toString()
         holder.contentView.text = item.name
+        holder.descView.text = item.description
+        holder.priceView.text = "$${item.price.toString()}"
         holder.imgView.load(item.urlImage)
     }
 
@@ -45,6 +47,8 @@ class MyItemRecyclerViewAdapter(
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val idView: TextView = binding.itemNumber
         val contentView: TextView = binding.content
+        val descView: TextView = binding.desc
+        val priceView: TextView = binding.price
         val imgView: ImageView = binding.imageViewItem
 
         override fun toString(): String {
